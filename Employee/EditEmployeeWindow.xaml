@@ -1,0 +1,49 @@
+﻿<Window x:Class="Employee.EditEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employee"
+        mc:Ignorable="d"
+        Title="EditEmployeeWindow" Height="450" Width="250">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel>
+                <Label Content="Имя:"/>
+                <TextBox x:Name="FirstNameInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Фамилия:"/>
+                <TextBox x:Name="LastNameInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Отчество:"/>
+                <TextBox x:Name="SurnameInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Номер телефона:"/>
+                <TextBox x:Name="PhoneInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Email:"/>
+                <TextBox x:Name="EMailInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Серия и номер паспорта:"/>
+                <TextBox x:Name="PassportInput"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Путь к фото:"/>
+                <TextBox x:Name="PhotoPathInput"/>
+            </StackPanel>
+            <Button x:Name="Save" Content="Сохранить" Margin="5 5 5 5" Click="Save_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
