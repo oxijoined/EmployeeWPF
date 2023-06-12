@@ -194,6 +194,45 @@ namespace Employee
             }
         }
 
+        // Обработчик кнопки "Фильтр"
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FilterInput.Text == "")
+            {
+                MessageBox.Show("Необходимо ввести фильтр");
+                return;
+            }
+
+            for (int i = 0; i < employeesGrid.Items.Count; i++)
+            {
+                DataGridRow row = employeesGrid.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
+
+                if (row != null)
+                {
+                    foreach (DataGridColumn column in employeesGrid.Columns)
+                    {
+                        if (column is DataGridTextColumn textColumn)
+                        {
+                            var cellContent = column.GetCellContent(row);
+                            if (cellContent is TextBlock textBlock)
+                            {
+                                string cellText = textBlock.Text;
+                                if (cellText.Contains(FilterInput.Text))
+                                {
+                                    row.Visibility = Visibility.Visible;
+                                }
+                                else
+                                {
+                                    row.Visibility = Visibility.Collapsed;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
         // Чтение данных из JSON-файла и добавление их в DataGrid
         private void ReadJsonAndAppendDataGrid(string filePath)
         {
